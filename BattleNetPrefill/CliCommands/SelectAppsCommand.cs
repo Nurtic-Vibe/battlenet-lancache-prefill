@@ -46,7 +46,10 @@ namespace BattleNetPrefill.CliCommands
             //TODO implement
             if (runPrefill)
             {
-                //await steamManager.DownloadMultipleAppsAsync(false, false, null);
+                var tactProductHandler = new TactProductHandler(ansiConsole);
+
+                var productsToProcess = TactProductHandler.LoadPreviouslySelectedApps();
+                await tactProductHandler.ProcessMultipleProductsAsync(productsToProcess);
             }
         }
 
