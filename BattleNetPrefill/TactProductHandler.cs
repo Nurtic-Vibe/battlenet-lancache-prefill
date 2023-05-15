@@ -134,19 +134,16 @@
 
         #region Select Apps
 
-        //TODO don't like the static
-        //TODO don't like the ansiConsole being passed in
-        public static void SetAppsAsSelected(List<TuiAppInfo> tuiAppModels, IAnsiConsole ansiConsole)
+        public void SetAppsAsSelected(List<TuiAppInfo> tuiAppModels)
         {
             List<string> selectedAppIds = tuiAppModels.Where(e => e.IsSelected)
                                                     .Select(e => e.AppId)
                                                     .ToList();
             File.WriteAllText(AppConfig.UserSelectedAppsPath, JsonSerializer.Serialize(selectedAppIds, SerializationContext.Default.ListString));
 
-            ansiConsole.LogMarkupLine($"Selected {Magenta(selectedAppIds.Count)} apps to prefill!");
+            _ansiConsole.LogMarkupLine($"Selected {Magenta(selectedAppIds.Count)} apps to prefill!");
         }
-
-        //TODO don't like the static
+        
         public static List<TactProduct> LoadPreviouslySelectedApps()
         {
             if (!File.Exists(AppConfig.UserSelectedAppsPath))
