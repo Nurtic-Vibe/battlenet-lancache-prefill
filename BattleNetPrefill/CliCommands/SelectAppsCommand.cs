@@ -43,7 +43,6 @@ namespace BattleNetPrefill.CliCommands
                                                 .AddChoices(true, false)
                                                 .UseConverter(e => e == false ? "No" : "Yes"));
 
-            //TODO implement
             if (runPrefill)
             {
                 var tactProductHandler = new TactProductHandler(ansiConsole);
