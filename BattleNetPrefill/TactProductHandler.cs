@@ -60,7 +60,7 @@
             var archiveIndexHandler = new ArchiveIndexHandler(cdnRequestManager, product);
             var patchLoader = new PatchLoader(cdnRequestManager);
             await cdnRequestManager.InitializeAsync(product);
-            
+
             // Finding the latest version of the game
             VersionsEntry? targetVersion = await configFileHandler.GetLatestVersionEntryAsync(product);
 
