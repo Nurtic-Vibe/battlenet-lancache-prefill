@@ -22,7 +22,7 @@
     },
     "Prefill Blizzard": {
       "commandName": "Project",
-      "commandLineArgs": "prefill --blizzard --force"
+      "commandLineArgs": "prefill --blizzard "
     },
     "Select Apps": {
       "commandName": "Project",

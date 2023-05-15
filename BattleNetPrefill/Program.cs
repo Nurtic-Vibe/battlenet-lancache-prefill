@@ -1,7 +1,6 @@
 ﻿namespace BattleNetPrefill
 {
     // TODO - Add publish build pipeline 
-    // TODO - Add summary table
     // TODO - Setup mkdocs and copy from SteamPrefill.  Update docs in general
     // TODO warcraft 3 hangs for some reason on retreiving uncached archive indexes
     public static class Program
