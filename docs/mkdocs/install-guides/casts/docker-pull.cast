@@ -91,7 +91,7 @@
 [3.39761, "o", "\u001b[97m"]
 [3.397839, "o", "BattleNetPrefill\u001b[39;49m \u001b[39;49m"]
 [3.397984, "o", "\u001b[93mv2.0.0\u001b[39;49m\r\n  "]
-[3.398052, "o", "Automatically fills a Lancache with games from Battlenet, so that subsequent downloads will be \r\n  served from the Lancache, improving speeds and reducing load on your internet connection. \r\n\r\n  Start by selecting apps for prefill with the 'select-apps' command, then start the prefill using 'prefill'\r\n"]
+[3.398052, "o", "Automatically fills a Lancache with games from BattleNet, so that subsequent downloads will be \r\n  served from the Lancache, improving speeds and reducing load on your internet connection. \r\n\r\n  Start by selecting apps for prefill with the 'select-apps' command, then start the prefill using 'prefill'\r\n"]
 [3.398094, "o", "\r\n\u001b[39;49m\u001b[97mUSAGE\u001b[39;49m\r\n  BattleNetPrefill "]
 [3.398984, "o", "\u001b[39;49m\u001b[93m[options]\u001b[39;49m\r\n"]
 [3.39917, "o", "  BattleNetPrefill \u001b[39;49m\u001b[96m[command]\u001b[39;49m [...]\r\n"]

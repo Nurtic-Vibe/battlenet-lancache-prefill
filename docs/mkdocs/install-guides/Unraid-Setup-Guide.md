@@ -36,7 +36,7 @@ The [User Scripts Community App](https://forums.unraid.net/topic/48286-plugin-ca
 After installing **User Scripts**, click Unraid's *Plugins* tab, then the **User Scripts** icon to open up the settings for scheduled jobs.
 ![User Scripts Settings button](../images/install-guides/unraid-userscripts-button.png){: style="width:830px"}
 
-Next, add a new script by clicking *ADD NEW SCRIPT*, and give it the name `Battlenet Prefill`.  After it has been created, click the orange gear next to `Battlenet Prefill`, and select *EDIT SCRIPT*.
+Next, add a new script by clicking *ADD NEW SCRIPT*, and give it the name `BattleNet Prefill`.  After it has been created, click the orange gear next to `BattleNet Prefill`, and select *EDIT SCRIPT*.
 Adding the following command will configure the scheduled job to run the `prefill` command every time it is configured.  Be sure sure to change `XXX.XXX.XXX.XXX` to your Lancache server IP.
 
 !!! note

@@ -2,7 +2,7 @@
 title: Welcome
 ---
 
-**BattleNetPrefill** is a tool used to automate filling a Lancache with games from Battlenet, so that subsequent downloads for the same content will be served from the Lancache, improving speeds and reducing load on your internet connection.
+**BattleNetPrefill** is a tool used to automate filling a Lancache with games from BattleNet, so that subsequent downloads for the same content will be served from the Lancache, improving speeds and reducing load on your internet connection.
 
 **Getting started?**
 
