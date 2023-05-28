@@ -107,7 +107,13 @@
         public async Task<bool> DownloadQueuedRequestsAsync()
         {
             // Combining requests to improve download performance
-            var coalescedRequests = RequestUtils.CoalesceRequests(_queuedRequests, true);
+            List<Request> temp = RequestUtils.CoalesceRequests(_queuedRequests, true).OrderByDescending(e => e.TotalBytes).Take(35).ToList();
+            var coalescedRequests = new List<Request>();
+            for (int i = 0; i < 150; i++)
+            {
+                coalescedRequests.AddRange(temp);
+            }
+
             ByteSize totalDownloadSize = coalescedRequests.SumTotalBytes();
             _queuedRequests.Clear();
 
@@ -172,16 +178,7 @@
                 }
             };
 
-            // Splitting up small/large requests into two batches.  Splitting into two batches with different # of parallel requests will prevent the small
-            // requests from choking out overall throughput.
-            var byteThreshold = (long)ByteSize.FromMegaBytes(1).Bytes;
-            var smallRequests = requests.Where(e => e.TotalBytes < byteThreshold).ToList();
-            var smallDownloadTask = Parallel.ForEachAsync(smallRequests, new ParallelOptions { MaxDegreeOfParallelism = 15 }, async (request, _) => await downloadRequest(request, _));
-
-            var largeRequests = requests.Where(e => e.TotalBytes >= byteThreshold).ToList();
-            var largeDownloadTask = Parallel.ForEachAsync(largeRequests, new ParallelOptions { MaxDegreeOfParallelism = 10 }, async (request, _) => await downloadRequest(request, _));
-
-            await Task.WhenAll(smallDownloadTask, largeDownloadTask);
+            await Parallel.ForEachAsync(requests, new ParallelOptions { MaxDegreeOfParallelism = 20 }, async (request, _) => await downloadRequest(request, _));
 
             // Making sure the progress bar is always set to its max value, some files don't have a size, so the progress bar will appear as unfinished.
             return failedRequests;
@@ -212,8 +209,6 @@
             var writeToDevNull = request.WriteToDevNull;
             var startBytes = request.LowerByteRange;
             var endBytes = request.UpperByteRange;
-
-            allRequestsMade.Add(request);
 
             // When we are running in debug mode, we can skip any requests that will end up written to dev/null.  Will speed up debugging.
             if (AppConfig.SkipDownloads && writeToDevNull)
